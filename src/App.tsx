@@ -39,6 +39,12 @@ const gearMapped = [...startingGear.entries()].map(
   }
 );
 
+const attributes: string[] = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+
+const attributesMapped = attributes.map((attr) => {
+  return <div key={attr}>{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
+});
+
 function App() {
   return (
     <>
@@ -49,6 +55,9 @@ function App() {
         </div>
         <div id="gear">
           {gearMapped}
+        </div>
+        <div id="attributes">
+          {attributesMapped}
         </div>
       </div>
     </>
