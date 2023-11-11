@@ -1,6 +1,8 @@
 import './App.css'
 
 
+let descriptors: string[] = ["Foul", "Putrid", "Foolish", "Dull", "Arrogant", "Stubborn", "Vain", "Weak", "Gullible", "Impolite", "Awful", "Brash", "Brainless", "Dismal", "Decrepit", "Disgusting", "Extraneous", "Fetid", "Fretful", "Ghastly", "Glum", "Greedy", "Grotesque", "Haggard", "Hideous", "Horrific", "Ill", "Inane", "Impure", "Insipid", "Negligent", "Odd", "Rude", "Squalid", "Vacuous"]
+
 let traits = new Map<string, string[]>()
 traits.set("Physique", ["Athletic", "Brawny", "Corpulent", "Delicate", "Gaunt", "Hulking", "Lanky", "Ripped", "Rugged", "Scrawny", "Short", "Sinewy", "Slender", "Flabby", "Statuesque", "Stout", "Tiny", "Towering", "Willowy", "Wiry"])
 traits.set("Face", ["Bloated", "Blunt", "Bony", "Chiseled", "Delicate", "Elongated", "Patrician", "Pinched", "Hawkish", "Broken", "Impish", "Narrow", "Ratlike", "Round", "Sunken", "Sharp", "Soft", "Square", "Wide", "Wolfish"])
@@ -48,9 +50,8 @@ const attributesMapped = attributes.map((attr) => {
 function App() {
   return (
     <>
-      <div>
-        <h1>Some Knave</h1>
-      </div>
+      <h1>Some <span class="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</h1>
+      <div>HP: {Math.ceil(Math.random() * 8)}</div>
       <div class="row">
         <div id="attributes" class="col">
           <h2>Attributes</h2>
