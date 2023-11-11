@@ -18,7 +18,7 @@ traits.set("Alignment", ["Law", "Law", "Law", "Law", "Law", "Chaos", "Chaos", "C
 
 const traitsMapped = [...traits.entries()].map(
   ([trait, value]) => {
-    return <div key={trait} class="value">{trait}: {value[Math.floor(Math.random() * value.length)]}</div>;
+    return <div key={trait} className="value">{trait}: {value[Math.floor(Math.random() * value.length)]}</div>;
   }
 );
 
@@ -37,31 +37,31 @@ const gearMapped = [...startingGear.entries()].map(
         <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
       </>;
     }
-    return <div key={slot} class="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
+    return <div key={slot} className="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
   }
 );
 
 const attributes: string[] = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
 
 const attributesMapped = attributes.map((attr) => {
-  return <div key={attr} class="value">{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
+  return <div key={attr} className="value">{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
 });
 
 function App() {
   return (
     <>
-      <h1>Some <span class="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</h1>
+      <h1>Some <span className="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</h1>
       <div>HP: {Math.ceil(Math.random() * 8)}</div>
-      <div class="row">
-        <div id="attributes" class="col">
+      <div className="row">
+        <div id="attributes" className="col">
           <h2>Attributes</h2>
           {attributesMapped}
         </div>
-        <div id="traits" class="col">
+        <div id="traits" className="col">
           <h2>Traits</h2>
           {traitsMapped}
         </div>
-        <div id="gear" class="col">
+        <div id="gear" className="col">
           <h2>Gear</h2>
           {gearMapped}
         </div>
