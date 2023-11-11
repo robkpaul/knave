@@ -44,13 +44,17 @@ const gearMapped = [...startingGear.entries()].map(
 const attributes: string[] = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
 
 const attributesMapped = attributes.map((attr) => {
-  return <div key={attr} className="value">{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
+  return <div key={attr} className="value">{attr}:  +{Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
 });
+
+function refreshPage() {
+  window.location.reload();
+}
 
 function App() {
   return (
     <>
-      <h1>Some <span className="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</h1>
+      <h1><button onClick={refreshPage}>Some <span className="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</button></h1>
       <div>HP: {Math.ceil(Math.random() * 8)}</div>
       <div className="row">
         <div id="attributes" className="col">
@@ -66,6 +70,8 @@ function App() {
           {gearMapped}
         </div>
       </div>
+      <div id="footer">Based on <a href="https://questingbeast.itch.io/knave">Knave</a> by Ben Milton, built by <a href="https://github.com/robkpaul">Robert Paul</a></div>
+
     </>
   )
 }
