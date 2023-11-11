@@ -4,3 +4,22 @@
   padding: 2rem;
   text-align: center;
 }
+
+h1 {
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  width: 33.33%;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.value {
+  text-align: left;
+}

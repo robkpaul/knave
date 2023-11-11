@@ -5,7 +5,7 @@ let traits = new Map<string, string[]>()
 traits.set("Physique", ["Athletic", "Brawny", "Corpulent", "Delicate", "Gaunt", "Hulking", "Lanky", "Ripped", "Rugged", "Scrawny", "Short", "Sinewy", "Slender", "Flabby", "Statuesque", "Stout", "Tiny", "Towering", "Willowy", "Wiry"])
 traits.set("Face", ["Bloated", "Blunt", "Bony", "Chiseled", "Delicate", "Elongated", "Patrician", "Pinched", "Hawkish", "Broken", "Impish", "Narrow", "Ratlike", "Round", "Sunken", "Sharp", "Soft", "Square", "Wide", "Wolfish"])
 traits.set("Skin", ["Battle Scar", "Birthmark", "Burn Scar", "Dark", "Makeup", "Oily", "Pale", "Perfect", "Pierced", "Pockmarked", "Reeking", "Tattooed", "Rosy", "Rough", "Sallow", "Sunburned", "Tanned", "War Paint", "Weathered", "Whip Scar"])
-traits.set("Hair", ["BaldWispy", "Braided", "Bristly", "Cropped", "Curly", "Disheveled", "Dreadlocks", "Filthy", "Frizzy", "Greased", "Limp", "Long", "Luxurious", "Mohawk", "Oily", "Ponytail", "Silky", "Topknot", "Wavy", "Wispy"])
+traits.set("Hair", ["Bald", "Wispy", "Braided", "Bristly", "Cropped", "Curly", "Disheveled", "Dreadlocks", "Filthy", "Frizzy", "Greased", "Limp", "Long", "Luxurious", "Mohawk", "Oily", "Ponytail", "Silky", "Topknot", "Wavy", "Wispy"])
 traits.set("Clothing", ["Antique", "Bloody", "Ceremonial", "Decorated", "Eccentric", "Elegant", "Fashionable", "Filthy", "Flamboyant", "Stained", "Foreign", "Frayed", "Frumpy", "Livery", "Oversized", "Patched", "Perfumed", "Rancid", "Torn", "Undersized"])
 traits.set("Virtue", ["Ambitious", "Cautious", "Courageous", "Courteous", "Curious", "Disciplined", "Focused", "Generous", "Gregarious", "Honest", "Honorable", "Humble", "Idealistic", "Just", "Loyal", "Merciful", "Righteous", "Serene", "Stoic", "Tolerant"])
 traits.set("Vice", ["Aggressive", "Arrogant", "Bitter", "Cowardly", "Cruel", "Deceitful", "Flippant", "Gluttonous", "Greedy", "Irascible", "Lazy", "Nervous", "Prejudiced", "Reckless", "Rude", "Suspicious", "Vain", "Vengeful", "Wasteful", "Whiny"])
@@ -16,7 +16,7 @@ traits.set("Alignment", ["Law", "Law", "Law", "Law", "Law", "Chaos", "Chaos", "C
 
 const traitsMapped = [...traits.entries()].map(
   ([trait, value]) => {
-    return <div key={trait}>{trait}: {value[Math.floor(Math.random() * value.length)]}</div>;
+    return <div key={trait} class="value">{trait}: {value[Math.floor(Math.random() * value.length)]}</div>;
   }
 );
 
@@ -35,29 +35,34 @@ const gearMapped = [...startingGear.entries()].map(
         <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
       </>;
     }
-    return <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
+    return <div key={slot} class="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
   }
 );
 
 const attributes: string[] = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
 
 const attributesMapped = attributes.map((attr) => {
-  return <div key={attr}>{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
+  return <div key={attr} class="value">{attr}:  {Math.min(...[Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)])}</div>
 });
 
 function App() {
   return (
     <>
-      <h1>Some Knave</h1>
       <div>
-        <div id="traits">
+        <h1>Some Knave</h1>
+      </div>
+      <div class="row">
+        <div id="attributes" class="col">
+          <h2>Attributes</h2>
+          {attributesMapped}
+        </div>
+        <div id="traits" class="col">
+          <h2>Traits</h2>
           {traitsMapped}
         </div>
-        <div id="gear">
+        <div id="gear" class="col">
+          <h2>Gear</h2>
           {gearMapped}
-        </div>
-        <div id="attributes">
-          {attributesMapped}
         </div>
       </div>
     </>
