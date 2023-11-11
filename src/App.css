@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+button {
+  background:none!important; /* forgive me */
+}
+
 .fancy {
   font-family: "Grenze Gotisch";
 }
@@ -22,4 +26,8 @@
 
 .value {
   text-align: left;
+}
+
+#footer {
+  padding-top: 2rem;
 }
