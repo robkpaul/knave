@@ -20,12 +20,36 @@ const traitsMapped = [...traits.entries()].map(
   }
 );
 
+let startingGear = new Map<string, string[]>()
+startingGear.set("Armor", ["No armor", "No armor", "No armor", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Gambeson", "Brigandine", "Brigandine", "Brigandine", "Brigandine", "Chain"])
+startingGear.set("Helmets and Shields", ["None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "Helmet", "Helmet", "Helmet", "Shield", "Shield", "Shield", "Helmet and Shield"])
+startingGear.set("Dungeoneering Gear", ["Rope, 50ft", "Pulleys", "Candles, 5", "Chain, 10ft", "Chalk, 10", "Crowbar", "Tinderbox", "Grap. hook", "Hammer", "Waterskin", "Lantern", "Lamp oil", "Padlock", "Manacles", "Mirror", "Pole, 10ft", "Sack", "Tent", "Spikes, 5", "Torches, 5"])
+startingGear.set("General Gear 1", ["Air bladder", "Bear trap", "Shovel", "Bellows", "Grease", "Saw", "Bucket", "Caltrops", "Chisel", "Drill", "Fish. rod", "Marbles", "Glue", "Pick", "Hourglass", "Net", "Tongs", "Lockpicks", "Metal file", "Nails"])
+startingGear.set("General Gear 2", ["Incense", "Sponge", "Lens", "Perfume", "Horn", "Bottle", "Soap", "Spyglass", "Tar pot", "Twine", "Fake jewels", "Blank book", "Card deck", "Dice set", "Cook pots", "Face paint", "Whistle", "Instrument", "Quill & Ink", "Small bell"])
+
+const gearMapped = [...startingGear.entries()].map(
+  ([slot, value]) => {
+    if (slot == "Dungeoneering Gear") {
+      return <>
+        <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
+        <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
+      </>;
+    }
+    return <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
+  }
+);
+
 function App() {
   return (
     <>
       <h1>Some Knave</h1>
-      <div id="traits">
-        {traitsMapped}
+      <div>
+        <div id="traits">
+          {traitsMapped}
+        </div>
+        <div id="gear">
+          {gearMapped}
+        </div>
       </div>
     </>
   )
