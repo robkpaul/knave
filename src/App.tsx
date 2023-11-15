@@ -33,8 +33,8 @@ const gearMapped = [...startingGear.entries()].map(
   ([slot, value]) => {
     if (slot == "Dungeoneering Gear") {
       return <>
-        <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
-        <div key={slot}>{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
+        <div key={slot} className="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
+        <div key={slot} className="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>
       </>;
     }
     return <div key={slot} className="value">{slot}: {value[Math.floor(Math.random() * value.length)]}</div>;
