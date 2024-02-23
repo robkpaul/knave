@@ -54,7 +54,7 @@ function refreshPage() {
 function App() {
   return (
     <>
-      <h1><button onClick={refreshPage}>Some <span className="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</button></h1>
+      <h1><button onClick={refreshPage}>Another <span className="fancy">{descriptors[Math.floor(Math.random() * descriptors.length)]}</span> Knave</button></h1>
       <div>HP: {Math.ceil(Math.random() * 8)}</div>
       <div className="row">
         <div id="attributes" className="col">
